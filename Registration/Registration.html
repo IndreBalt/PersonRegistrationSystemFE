@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../Styles.css">
+    </head>
+    <body>
+        <h1>Person Registration System</h1>
+        <h2>Registration</h2>
+        <form id = "registration_form">
+            <h3>Login information</h3>
+            <label for ="registration_username">UserName</label>
+            <input type="text" name="registration_username">
+            <label for="registration_password">Password</label>
+            <input type="password" name="registration_password">
+            <label for="registration_confirm_password">Confirm password</label>
+            <input type="password" name="registration_confirm_password">
+            <h3>Personal information</h3>
+            <label for ="registration_first_name">First name</label>
+            <input type="text" name="registration_first_name" >
+            <label for="registration_last_name">Last name</label>
+            <input type="text" name="registration_last_name">
+            <label for="registration_personal_id">Personal ID</label>
+            <input type="text" name="registration_personal_id">
+            <label for ="registration_phone">Phone number</label>
+            <input type="tel" name="registration_phone" >
+            <label for="registration_email">Email</label>
+            <input type="email" name="registration_email">
+            <label for="registration_photo">Profile photo</label>
+            <input type="file" name="registration_photo">
+            <h3>Living address</h3>
+            <label for ="registration_city">City</label>
+            <input type="text" name="registration_city" >
+            <label for="registration_street">Street</label>
+            <input type="text" name="registration_street">
+            <label for="registration_house_number">House number</label>
+            <input type="text" name="registration_house_number">
+            <label for ="registration_apartment_number">Apartment number</label>
+            <input type="text" name="registration_apartment_number" >
+        </form>
+        <button id = "registration_confirm_btn">Register and log in</button>
+        <button id = "registration_to_index_btn">Retrun to main page</button>
+        
+        
+        <script src="Registration.js" async defer></script>
+    </body>
+</html>

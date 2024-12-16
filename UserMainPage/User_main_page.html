@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../Styles.css">
+    </head>
+    <body>
+        <h1>Person Registration System</h1>
+        <h2>User</h2>
+        
+        <h3>User Information</h3>
+        
+        <div id="user_photo_div"></div>
+        <div id="user_information_div"></div>
+        <div id="user_information_update_div" style="display: none;">
+            <ul>
+                <li>First name: 
+                    <input name="first_name_update_input" type = "text">
+                    <button id="update_first_name_btn">Update</button>
+                </li>
+                <li>Last name: 
+                    <input name="last_name_update_input" type = "text">
+                    <button id="update_last_name_btn">Update</button>
+                </li>
+                <li>Personal ID: 
+                    <input name="personal_id_update_input" type="number">
+                    <button id="update_personal_id_btn">Update</button>
+                </li>
+                <li>Phone number: 
+                    <input name="phone_update_input" type="tel">
+                    <button id="update_phone_btn">Update</button>
+                </li>
+                <li>Email: 
+                    <input name="email_update_input" type = "email">
+                    <button id="update_email_btn">Update</button>
+                </li>
+                <li>Profile photo: 
+                    <input name="photo_update_input" type="file">
+                    <button id="update_photo_btn">Update </button>
+                </li>
+                <li>
+                    Address: 
+                    <ul>
+                        <li>City: 
+                            <input name="city_update_input" type = "text">
+                            <button id="update_city_btn">Update</button>
+                        </li>
+                        <li>Street: 
+                            <input name="street_update_input" type = "text">
+                            <button id="update_street_btn">Update</button>
+                        </li>
+                        <li>House number: 
+                            <input name="house_number_update_input" type = "number">
+                            <button id="update_house_number_btn">Update</button>
+                        </li>
+                        <li>Apartment number: 
+                            <input name="apatment_number_update_input" type = "number">
+                            <button id="update_apartment_number_btn">Update</button>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+
+        <button id = "user_main_page_log_out_btn">Log Out</button>
+        <button id = "update_user_info_btn">Update personal information</button>
+        <button id = "collapse_update_btn" style = "display: none;">Collapse update fields</button>
+
+        <script src="User_main_page.js" async defer></script>
+        <script src="Update_personal_info.js" async defer></script>
+    </body>
+</html>
