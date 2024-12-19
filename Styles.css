@@ -16,6 +16,7 @@ button{
 }
 
 body {
+    text-align: center;
     font-family: Arial, sans-serif;
     background-color: #f4f4f9;
     color: #333;
@@ -71,7 +72,7 @@ input[type="number"] {
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    margin-bottom: 15px;
+    margin-bottom: 2px;
 }
 
 input[type="text"]:focus,
@@ -93,7 +94,8 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 20px;
+    margin-top: 10px;
+    margin-bottom: 20px;
     width: 100%;
     max-width: 250px;
     margin-left: auto;
@@ -102,6 +104,13 @@ button {
 
 button:hover {
     background-color: #2980b9;
+}
+li{
+    list-style: none;
+}
+#user_information_update_div>ul>li{
+    margin: 20px;
+    
 }
 
 #registration_to_index_btn {

@@ -89,10 +89,17 @@ const createUsersRow =(user)=>{
 
 const deleteUser = (btn) =>{
     const row = btn.parentNode.parentNode;
-    fetch(`https://localhost:7013/api/User/${row.id}`,{
-        method:'DELETE'
-    })
-    .then(response => response.ok?(console.log("Deleted"), window.location.reload()):console.log("Something is wrong"));
+    
+    if (confirm("Are you sure you want to delete User ?")) {        
+        fetch(`https://localhost:7013/api/User/${row.id}`,{
+            method:'DELETE',
+            headers: {
+                'Authorization': 'Bearer '+ userToken
+            }
+        })
+        .then(response => response.ok?(console.log("Deleted"), window.location.reload()):console.log("Something is wrong"));
+
+    }
 }
 const createUserAddresString = (address) => 
 {

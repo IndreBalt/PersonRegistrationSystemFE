@@ -3,6 +3,7 @@
 
 const updateFirstName = (userId, token) =>{
     const newFirstName = document.querySelector('input[name = "first_name_update_input"]').value;
+    ifEmpty(newFirstName);
     fetch(`https://localhost:7013/api/UserPersonalInfo/${userId}/UpdateFirstName?firstName=${newFirstName}`,{
         method: 'PUT',
         headers: {
@@ -17,6 +18,7 @@ const updateFirstName = (userId, token) =>{
 
 const updateLastName = (userId, token) =>{
     const newLastName = document.querySelector('input[name = "last_name_update_input"]').value;
+    ifEmpty(newLastName);
     fetch(`https://localhost:7013/api/UserPersonalInfo/${userId}/UpdateLastName?lastName=${newLastName}`,{
         method: 'PUT',
         headers: {
@@ -30,6 +32,7 @@ const updateLastName = (userId, token) =>{
 
 const updatePersonalId = (userId, token) =>{
     const newPersonalId = document.querySelector('input[name = "personal_id_update_input"]').value;
+    ifEmpty(newPersonalId);
     fetch(`https://localhost:7013/api/UserPersonalInfo/${userId}/UpdatePersonalId?personalId=${newPersonalId}`,{
         method: 'PUT',
         headers: {
@@ -43,6 +46,7 @@ const updatePersonalId = (userId, token) =>{
 
 const updatePhone = (userId, token) =>{
     const newPhone = document.querySelector('input[name = "phone_update_input"]').value;
+    ifEmpty(newPhone);
     fetch(`https://localhost:7013/api/UserPersonalInfo/${userId}/UpdatePhoneNumber?phoneNumber=${newPhone}`,{
         method: 'PUT',
         headers: {
@@ -56,6 +60,7 @@ const updatePhone = (userId, token) =>{
 
 const updateEmail = (userId, token) =>{
     const newEmail = document.querySelector('input[name = "email_update_input"]').value;
+    ifEmpty(newEmail);
     fetch(`https://localhost:7013/api/UserPersonalInfo/${userId}/UpdateEmail?email=${newEmail}`,{
         method: 'PUT',
         headers: {
@@ -70,6 +75,7 @@ const updateEmail = (userId, token) =>{
 
 const updatePhoto = (userId, token) =>{
     const newPhoto = document.querySelector('input[name = "photo_update_input"]').files[0];
+    ifEmpty(newPhoto);
     const photoData = new FormData();
     photoData.append('userPhoto', newPhoto);
     fetch(`https://localhost:7013/api/UserPersonalInfo/${userId}/UpdateProfiePhoto`,{
@@ -88,6 +94,7 @@ const updatePhoto = (userId, token) =>{
 
 const updateCity = (userId, token) =>{
     const newCity = document.querySelector('input[name = "city_update_input"]').value;
+    ifEmpty(newCity);
     fetch(`https://localhost:7013/api/Address/${userId}/UpdateCity?city=${newCity}`,{
         method: 'PUT',
         headers: {
@@ -101,6 +108,7 @@ const updateCity = (userId, token) =>{
 
 const updateStreet = (userId, token) =>{
     const newStreet = document.querySelector('input[name = "street_update_input"]').value;
+    ifEmpty(newStreet);
     fetch(`https://localhost:7013/api/Address/${userId}/UpdateStreet?street=${newStreet}`,{
         method: 'PUT',
         headers: {
@@ -114,6 +122,7 @@ const updateStreet = (userId, token) =>{
 
 const updateHouseNumber = (userId, token) =>{
     const newHouseNumber = document.querySelector('input[name = "house_number_update_input"]').value;
+    ifEmpty(newHouseNumber);
     fetch(`https://localhost:7013/api/Address/${userId}/UpdateHouseNumber?houseNumber=${newHouseNumber}`,{
         method: 'PUT',
         headers: {
@@ -127,6 +136,7 @@ const updateHouseNumber = (userId, token) =>{
 
 const updateApartmentNumber = (userId, token) =>{
     const newApartmentNumber = document.querySelector('input[name = "apatment_number_update_input"]').value;
+    ifEmpty(newApartmentNumber);
     fetch(`https://localhost:7013/api/Address/${userId}/UpdateApartmentNumber?apartmentNumber=${newApartmentNumber}`,{
         method: 'PUT',
         headers: {
@@ -136,6 +146,21 @@ const updateApartmentNumber = (userId, token) =>{
     .then(response => response.json())
     .then(json => console.log(json))
     .catch(error => console.log(error))
+}
+
+const ifEmpty =(input)=> {
+    if(!input ){
+        infoDiv("Field is empty", "red");
+    }
+}
+const infoDiv = (message, color) =>{  
+    
+    const infoDiv = document.createElement('div');
+    infoDiv.classList.add('info_div');
+    infoDiv.innerHTML = message;
+    infoDiv.style.border = `1px solid ${color}`;
+    infoDiv.style.color = color;    
+    document.getElementById('user_information_update_div').insertAdjacentElement("beforebegin", infoDiv);
 }
 
 const updateUserInfo = () =>{

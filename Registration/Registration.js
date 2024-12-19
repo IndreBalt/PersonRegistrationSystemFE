@@ -1,7 +1,7 @@
+
 //sukurimas User objektas
 const createUser = () =>{ 
-  
-    do{       
+         
         const userNameValue = document.querySelector('input[name = "registration_username"]').value;
         const passwordValue = document.querySelector('input[name = "registration_password"]').value;
         const confirmPasswordValue = document.querySelector('input[name = "registration_confirm_password"]').value;
@@ -40,10 +40,14 @@ const createUser = () =>{
                     }
                 }
             }  
-            return user;         
-        }         
-    }while(!user); 
-}   
+            if (Object.keys(user).length !== 0) {
+                addUser(user);
+            }      
+        }     
+}  
+const getUserByUserName = (userName) => {
+    fetch(GetUserByUserName)
+}
 //Sukurima userio FormData objektas
 const createUserData = (user) => {
     const data = new FormData();    
@@ -70,9 +74,8 @@ const createUserData = (user) => {
 }
 
 //Sukuriamas Useris DB, prijungiamas ir nukreipamas i savo puslapi
-const addUser = () =>{ 
-    const newUser = createUser();
-    const userData = createUserData(newUser);
+const addUser = (user) =>{     
+    const userData = createUserData(user);
     fetch('https://localhost:7013/api/User/Registration',{
         method:'POST',
         body: userData
@@ -81,8 +84,30 @@ const addUser = () =>{
         if(response.status == '201')
             {
                 logInUser(newUser);
-    }})
+        }else if(response.status == '409'){
+            infoDiv("User already exists");
+        }else{
+            response.json()
+            .then(result => {
+                for(let item in result.errors){
+                    for(let er in result.errors[item])
+                    infoDiv(JSON.stringify(result.errors[item][er]), 'red');
+                }
+            })
+           
+        }
+    })
+    
     .catch(error => console.log(error));
+}
+const infoDiv = (message, color) =>{  
+    
+    const infoDiv = document.createElement('div');
+    infoDiv.classList.add('info_div');
+    infoDiv.innerHTML = message;
+    //infoDiv.style.border = `1px solid ${color}`;
+    infoDiv.style.color = color;    
+    document.getElementById('registration_form').insertAdjacentElement("beforebegin", infoDiv);
 }
 const parseJwt = (token) => {
     var arrayToken = token.split('.'); //[1];
@@ -120,5 +145,5 @@ const logInUser = (user) => {
     .catch(error => console.error("Erroras: "+error));  
 }
 
-registration_confirm_btn.onclick = () => addUser();
+registration_confirm_btn.onclick = () => createUser();
 registration_to_index_btn.onclick = () => {location.href = "../index.html"};

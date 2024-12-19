@@ -107,4 +107,4 @@ getUserPhotoById(tokenObj.nameidentifier, userToken);
 
 
 user_main_page_log_out_btn.onclick = () => logOut();
-update_user_info_btn.onclick = () =>updateUserInfo();
+update_user_info_btn.onclick = () => updateUserInfo();
