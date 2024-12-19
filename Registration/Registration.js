@@ -83,7 +83,7 @@ const addUser = (user) =>{
     .then(response =>{
         if(response.status == '201')
             {
-                logInUser(newUser);
+                logInUser(user);
         }else if(response.status == '409'){
             infoDiv("User already exists");
         }else{
